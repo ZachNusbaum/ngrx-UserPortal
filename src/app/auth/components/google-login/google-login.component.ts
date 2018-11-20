@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./google-login.component.css']
 })
 export class GoogleLoginComponent implements OnInit {
-  user$ = this.afAuth.user;
+  user$ = this.afAuth.idTokenResult;
   constructor(private afAuth: AngularFireAuth) { }
 
   ngOnInit() {

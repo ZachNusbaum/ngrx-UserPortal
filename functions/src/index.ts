@@ -7,10 +7,12 @@ import { ulid } from 'ulid';
 //
 export const helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!");
-});
+})
 
 export const generateULID = functions.https.onRequest((request, response) => {
-  response.send(ulid());
+  response.sendStatus(200);
+  response.contentType('application/json');
+  response.send(JSON.stringify({success: true, result: ulid()}));
 })
 
 export const assignULID = functions.auth.user().onCreate((user) => {
