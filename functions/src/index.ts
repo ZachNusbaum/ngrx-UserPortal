@@ -29,7 +29,13 @@ export const sendNewEmail = functions.auth.user().onCreate((user) => {
     from: 'User Auth Demo <no-reply@mg.zncodes.com>',
     to: user.email,
     subject: 'Welcome aboard!',
-    text: 'Your account is now active. Sign in with Google when accessing the site.'
+    text: `
+      Your account is now active. Sign in with Google when accessing the site.
+
+      Email: ${user.email}
+      User ID: ${user.uid}
+      Login at: https://ngrx-auth-f6e75.firebaseapp.com
+    `
   };
 
   return mailgun.messages().send(data, (error, body) => console.log(error))
