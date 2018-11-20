@@ -10,8 +10,8 @@ export const helloWorld = functions.https.onRequest((request, response) => {
 })
 
 export const generateULID = functions.https.onRequest((request, response) => {
-  response.sendStatus(200);
   response.contentType('application/json');
+  response.status(200);
   response.send(JSON.stringify({success: true, result: ulid()}));
 })
 
