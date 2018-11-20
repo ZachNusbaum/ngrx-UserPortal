@@ -135,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "UserPortal"
+  "defaultProject": "UserPortal",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
