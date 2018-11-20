@@ -29,8 +29,8 @@ export const sendNewEmail = functions.auth.user().onCreate((user) => {
     from: 'User Auth Demo <no-reply@mg.zncodes.com>',
     to: user.email,
     subject: 'Welcome aboard!',
-    text: 'Testing some Mailgun awesomeness!'
+    text: 'Your account is now active. Sign in with Google when accessing the site.'
   };
 
-  mailgun.messages().send(data, (error, body) => console.log(body))
+  return mailgun.messages().send(data, (error, body) => console.log(error))
 })
