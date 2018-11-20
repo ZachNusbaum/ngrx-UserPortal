@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
+  user$ = this.afAuth.user;
 
-  constructor() { }
+  constructor(private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(displayName) {
+    alert('meh');
+    this.afAuth.auth.currentUser.updateProfile(
+      {displayName: displayName, photoURL: this.afAuth.auth.currentUser.photoURL }
+      ).then((pro) => console.log(pro));
+    return false;
   }
 
 }
