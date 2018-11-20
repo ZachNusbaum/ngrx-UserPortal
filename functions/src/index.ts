@@ -30,11 +30,12 @@ export const sendNewEmail = functions.auth.user().onCreate((user) => {
     to: user.email,
     subject: 'Welcome aboard!',
     text: `
-      Your account is now active. Sign in with Google when accessing the site.
+      Your account is now active and enabled for sign in.
 
       Email: ${user.email}
       User ID: ${user.uid}
       Login at: https://ngrx-auth-f6e75.firebaseapp.com
+      Login Method: ${user.toJSON}
     `
   };
 
