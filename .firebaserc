@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "dev": "ngrx-auth-f6e75",
+    "default": "ngrx-auth-f6e75"
+  }
+}
