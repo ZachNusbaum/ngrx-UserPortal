@@ -8,9 +8,10 @@ import { AuthEffects } from './store/effects/auth.effects';
 import { GoogleLoginComponent } from './components/google-login/google-login.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { EmailLoginComponent } from './components/email-login/email-login.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
-  declarations: [GoogleLoginComponent, UserRegistrationComponent, EmailLoginComponent],
+  declarations: [GoogleLoginComponent, UserRegistrationComponent, EmailLoginComponent, EditProfileComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('auth', fromAuth.reducer),

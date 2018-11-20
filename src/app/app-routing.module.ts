@@ -1,3 +1,4 @@
+import { EditProfileComponent } from './auth/components/edit-profile/edit-profile.component';
 import { EmailLoginComponent } from './auth/components/email-login/email-login.component';
 import { GoogleLoginComponent } from './auth/components/google-login/google-login.component';
 import { UserRegistrationComponent } from './auth/components/user-registration/user-registration.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path: 'users', children: [
     {path: 'register', component: UserRegistrationComponent},
     {path: 'google_login', component: GoogleLoginComponent},
-    {path: 'login', component: EmailLoginComponent}
+    {path: 'login', component: EmailLoginComponent},
+    {path: 'edit', component: EditProfileComponent}
   ]}
 ];
 
