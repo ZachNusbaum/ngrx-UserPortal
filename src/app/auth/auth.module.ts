@@ -12,6 +12,9 @@ import { GoogleLoginComponent } from './components/google-login/google-login.com
     CommonModule,
     StoreModule.forFeature('auth', fromAuth.reducer),
     EffectsModule.forFeature([AuthEffects])
+  ],
+  exports: [
+    GoogleLoginComponent
   ]
 })
 export class AuthModule { }

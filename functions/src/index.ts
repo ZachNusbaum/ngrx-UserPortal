@@ -1,4 +1,6 @@
 import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
+admin.initializeApp(functions.config().firebase);
 import { ulid } from 'ulid';
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -12,5 +14,6 @@ export const generateULID = functions.https.onRequest((request, response) => {
 })
 
 export const assignULID = functions.auth.user().onCreate((user) => {
-  user.customClaims = {ulid: ulid()}
-})
+  const customClaims = {ulid: ulid()};
+  return admin.auth().setCustomUserClaims(user.uid, customClaims);
+});
