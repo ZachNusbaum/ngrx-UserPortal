@@ -3,3 +3,11 @@
   <li><a routerLink="/users/login">Login with Email</a></li>
   <li><a routerLink="/users/google_login">Register/Login with Google</a></li>
 </ul>
+
+<div *ngIf="state$ | async as state">
+    <div *ngIf="state.loggedIn">
+      <h4>You are signed in!</h4>
+      <button (click)="logout()">Logout</button>
+      <pre>{{user$ | async | json}}</pre>
+    </div>
+  </div>

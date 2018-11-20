@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Login, LoginSuccess } from './../actions/auth.actions';
+import { Login, LoginSuccess, LogoutSuccess } from './../actions/auth.actions';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
@@ -20,6 +20,14 @@ export class AuthEffects {
       return new LoginSuccess();
     }),
     tap(() => this.router.navigateByUrl('/'))
+  );
+
+  @Effect()
+  logout$ = this.actions$.pipe(
+    ofType(AuthActionTypes.Logout),
+    map(() => {
+      return new LogoutSuccess();
+    })
   );
 
   constructor(private actions$: Actions, private afAuth: AngularFireAuth, private router: Router) {}
