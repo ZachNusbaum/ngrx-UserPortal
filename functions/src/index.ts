@@ -32,11 +32,26 @@ app.get('/ip', (req, res) => {
 })
 
 app.get('/zip/:code', (req, res) => {
-  request(`https://petshop.zchry.cc/api/zip/${req.params.code}`, (error, response, body) => {
-    console.error(error);
-    console.log(response);
-    res.send(body);
-  });
+  const zip = admin.firestore()
+      .collection('zips')
+      .doc(req.params.code);
+
+  zip.get().then((zipSnapshot) => {
+    if(zipSnapshot.exists) {
+      const saved = JSON.stringify({...zipSnapshot.data(), cached: true});
+      res.send(saved);
+    } else {
+      request(`https://petshop.zchry.cc/api/zip/${req.params.code}`, (error, response, body) => {
+        admin.firestore().collection('zips').doc(req.params.code).set(JSON.parse(body))
+          .then((doc) => console.log(doc))
+          .catch((err) => console.error(err));
+        console.log('ZIP Success', body);
+        res.send(body);
+      });
+    }
+  })
+  .catch((error) => console.error(error))
+
 });
 
 app.get('/ulid', (req, res) => {
@@ -75,6 +90,8 @@ export const sendNewEmail = functions.auth.user().onCreate((user) => {
         - Zach Nusbaum
     `
   };
+
+  console.log('Registration Email Sent', data);
 
   return mailgun.messages().send(data, (error, body) => console.log(error))
 })
