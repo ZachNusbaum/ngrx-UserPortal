@@ -10,3 +10,7 @@ export const helloWorld = functions.https.onRequest((request, response) => {
 export const generateULID = functions.https.onRequest((request, response) => {
   response.send(ulid());
 })
+
+export const assignULID = functions.auth.user().onCreate((user) => {
+  user.customClaims = {ulid: ulid()}
+})
