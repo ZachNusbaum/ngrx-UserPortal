@@ -7,9 +7,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects';
 import { GoogleLoginComponent } from './components/google-login/google-login.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { EmailLoginComponent } from './components/email-login/email-login.component';
 
 @NgModule({
-  declarations: [GoogleLoginComponent, UserRegistrationComponent],
+  declarations: [GoogleLoginComponent, UserRegistrationComponent, EmailLoginComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('auth', fromAuth.reducer),
