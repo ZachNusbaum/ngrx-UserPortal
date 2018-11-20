@@ -1,8 +1,9 @@
+import { State } from './../../../reducers/index';
 import { Logout } from './../../../auth/store/actions/auth.actions';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
-import { State } from 'src/app/reducers';
+import * as fromAuth from '../../../auth/store/reducers/auth.reducer';
 
 @Component({
   selector: 'app-homepage',

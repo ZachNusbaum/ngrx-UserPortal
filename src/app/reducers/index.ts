@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 import * as fromAuth from '../auth/store/reducers/auth.reducer';
 
 export interface State {
-
+  auth: fromAuth.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
