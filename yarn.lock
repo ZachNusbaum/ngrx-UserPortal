@@ -291,6 +291,30 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@ngrx/effects@github:ngrx/effects-builds":
+  version "7.0.0-beta.0"
+  resolved "https://codeload.github.com/ngrx/effects-builds/tar.gz/81c8e50bb0e5283af218afad1f1a331019c536ac"
+
+"@ngrx/entity@github:ngrx/entity-builds":
+  version "7.0.0-beta.0"
+  resolved "https://codeload.github.com/ngrx/entity-builds/tar.gz/ad757fd9ad36906757ac17f674b540350668ddaa"
+
+"@ngrx/router-store@github:ngrx/router-store-builds":
+  version "7.0.0-beta.0"
+  resolved "https://codeload.github.com/ngrx/router-store-builds/tar.gz/b3af5db9db1c1d353b3b06d9dca2b355e5aad9be"
+
+"@ngrx/schematics@github:ngrx/schematics-builds":
+  version "7.0.0-beta.0"
+  resolved "https://codeload.github.com/ngrx/schematics-builds/tar.gz/12f72e62a743a1f50f1d75a621d832604da85fbf"
+
+"@ngrx/store-devtools@github:ngrx/store-devtools-builds":
+  version "7.0.0-beta.0"
+  resolved "https://codeload.github.com/ngrx/store-devtools-builds/tar.gz/d085ca75e6e55f8702ca67b17442451b7ce41251"
+
+"@ngrx/store@github:ngrx/store-builds":
+  version "7.0.0-beta.0"
+  resolved "https://codeload.github.com/ngrx/store-builds/tar.gz/11738f135301bbcbe4e8602ae2ff05dc4f287ce4"
+
 "@ngtools/webpack@7.0.6":
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-7.0.6.tgz#cc4f4189765f6743417b4eee946fb69590f93ce1"
