@@ -1,3 +1,4 @@
+import { PasswordResetComponent } from './auth/components/password-reset/password-reset.component';
 import { EditProfileComponent } from './auth/components/edit-profile/edit-profile.component';
 import { EmailLoginComponent } from './auth/components/email-login/email-login.component';
 import { GoogleLoginComponent } from './auth/components/google-login/google-login.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
     {path: 'register', component: UserRegistrationComponent},
     {path: 'google_login', component: GoogleLoginComponent},
     {path: 'login', component: EmailLoginComponent},
-    {path: 'edit', component: EditProfileComponent}
+    {path: 'edit', component: EditProfileComponent},
+    {path: 'reset_password', component: PasswordResetComponent}
   ]}
 ];
 

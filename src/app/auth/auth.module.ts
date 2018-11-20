@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +18,8 @@ import { PasswordResetComponent } from './components/password-reset/password-res
     CommonModule,
     StoreModule.forFeature('auth', fromAuth.reducer),
     EffectsModule.forFeature([AuthEffects]),
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   exports: [
     GoogleLoginComponent

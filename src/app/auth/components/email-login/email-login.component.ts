@@ -14,6 +14,8 @@ export class EmailLoginComponent implements OnInit {
   @ViewChild('emailLogin') emailLogin: ElementRef;
   signIn = { email: null, password: null };
 
+  user$ = this.afAuth.user;
+
   constructor(private afAuth: AngularFireAuth, private store: Store<fromAuth.State>) { }
 
   ngOnInit() {
