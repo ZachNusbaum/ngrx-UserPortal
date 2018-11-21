@@ -1,11 +1,11 @@
 import { Router } from '@angular/router';
-import { Login, LoginSuccess, LogoutSuccess, RegisterSuccess, RegisterError } from './../actions/auth.actions';
+import { Login, LoginSuccess, LogoutSuccess, RegisterSuccess, RegisterError, LoginError } from './../actions/auth.actions';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { AuthActionTypes } from '../actions/auth.actions';
 import { mergeMap, map, tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 @Injectable()
 export class AuthEffects {
 
@@ -13,13 +13,24 @@ export class AuthEffects {
   login$ = this.actions$.pipe(
     ofType(AuthActionTypes.Login),
     mergeMap((action: Login) => {
-      return this.afAuth.auth.signInWithEmailAndPassword(
+      const signIn = this.afAuth.auth.signInWithEmailAndPassword(
         action.email, action.password
-      );
+      ).catch((error) => alert(error.message));
+      return signIn;
     }),
     map((user) => {
-      return new LoginSuccess();
-    }),
+      console.log('user', user);
+      if (user) {
+        return new LoginSuccess();
+      } else {
+        return new LoginError();
+      }
+    })
+  );
+
+  @Effect({dispatch: false})
+  loginSuccess$ = this.actions$.pipe(
+    ofType(AuthActionTypes.LoginSuccess),
     tap(() => this.router.navigateByUrl('/'))
   );
 
