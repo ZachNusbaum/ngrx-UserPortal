@@ -1,3 +1,24 @@
-<p>
-  zipcode-cache works!
-</p>
+<div *ngIf="zipcodes$ | async as zipcodes">
+  <table>
+    <thead>
+      <tr>
+        <th>Zipcode</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let zipcode of zipcodes">
+        <td>{{zipcode.input}}</td>
+        <td>{{zipcode.result.city}}</td>
+        <td>{{zipcode.result.state}}</td>
+        <td>{{zipcode.result.latitude}}</td>
+        <td>{{zipcode.result.longitude}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

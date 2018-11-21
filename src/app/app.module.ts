@@ -1,3 +1,4 @@
+import { ReportsModule } from './reports/reports.module';
 import { AuthModule } from './auth/auth.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -33,7 +34,8 @@ import { HomepageComponent } from './core/components/homepage/homepage.component
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([AppEffects]),
     AuthModule,
-    FormsModule
+    FormsModule,
+    ReportsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
