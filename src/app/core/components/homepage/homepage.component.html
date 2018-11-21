@@ -8,6 +8,5 @@
     <div *ngIf="state.loggedIn">
       <h4>You are signed in!</h4>
       <button (click)="logout()">Logout</button>
-      <pre>{{user$ | async | json}}</pre>
     </div>
   </div>
