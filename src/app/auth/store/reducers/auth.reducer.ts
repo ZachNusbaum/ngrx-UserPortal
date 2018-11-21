@@ -12,6 +12,9 @@ export const initialState: State = {
 export function reducer(state = initialState, action: AuthActions): State {
   switch (action.type) {
 
+    case AuthActionTypes.AlreadySignedIn:
+      return {...state, loggedIn: true};
+
     case AuthActionTypes.LoginSuccess:
       return {...state, loggedIn: true};
 

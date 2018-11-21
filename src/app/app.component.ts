@@ -1,4 +1,4 @@
-import { LoginSuccess, LogoutSuccess } from './auth/store/actions/auth.actions';
+import { LoginSuccess, LogoutSuccess, AlreadySignedIn } from './auth/store/actions/auth.actions';
 import { Store } from '@ngrx/store';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.afAuth.user.subscribe((user) => {
       if (user) {
-        this.store.dispatch(new LoginSuccess());
+        this.store.dispatch(new AlreadySignedIn());
       }
     });
   }

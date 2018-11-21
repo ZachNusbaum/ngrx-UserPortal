@@ -9,7 +9,8 @@ export enum AuthActionTypes {
   RegisterSuccess = '[Auth] Registration Success',
   Logout = '[Auth] Logout',
   LogoutSuccess = '[Auth] Logout Success',
-  SendEmailVerify = '[Auth] Sent Verification Email'
+  SendEmailVerify = '[Auth] Sent Verification Email',
+  AlreadySignedIn = '[Auth] Already Signed In'
 }
 
 export class Login implements Action {
@@ -50,6 +51,10 @@ export class SendEmailVerify implements Action {
   readonly type = AuthActionTypes.SendEmailVerify;
 }
 
+export class AlreadySignedIn implements Action {
+  readonly type = AuthActionTypes.AlreadySignedIn;
+}
+
 export type AuthActions = Login
                           | LoginSuccess
                           | LoginError
@@ -57,4 +62,5 @@ export type AuthActions = Login
                           | RegisterSuccess
                           | RegisterError
                           | Logout
-                          | LogoutSuccess;
+                          | LogoutSuccess
+                          | AlreadySignedIn;
