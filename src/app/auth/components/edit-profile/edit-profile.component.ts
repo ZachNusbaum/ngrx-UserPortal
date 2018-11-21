@@ -15,7 +15,6 @@ export class EditProfileComponent implements OnInit {
   }
 
   onSubmit(displayName) {
-    alert('meh');
     this.afAuth.auth.currentUser.updateProfile(
       {displayName: displayName, photoURL: this.afAuth.auth.currentUser.photoURL }
       ).then((pro) => console.log(pro));

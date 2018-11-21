@@ -1,5 +1,6 @@
 <div *ngIf="user$ | async as user; else loginForm">
   <p *ngIf="user">You are signed in. <a routerLink="/">home</a></p>
+  <app-verify-email></app-verify-email>
 </div>
 
 <ng-template #loginForm>

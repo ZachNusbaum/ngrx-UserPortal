@@ -74,9 +74,37 @@ export const assignULID = functions.auth.user().onCreate((user) => {
     .catch((error) => console.log(error));
 });
 
+export const notifyOfDeletion = functions.auth.user().onDelete((user) => {
+  const data = {
+    from: 'User Auth Demo <no-reply@mg.zncodes.com>',
+    to: user.email,
+    'h:Reply-To': 'zach@zdnmail.com',
+    subject: 'Notice of Account Deletion',
+    text: `
+    Hello ${user.email},
+
+    This email serves to notify you that your account has been deleted.
+
+    If you register again, a new id will be assigned. This means that you will not be able to retrieve any previous data.
+
+    Thank you for your understanding.
+
+    *** *** *** *** *** *** ***
+    If you need to contact us about this deletion, please reference the information below:
+
+    / ue-> ${user.email} / uid-> ${user.uid} / ts-> ${Date.now()} /
+    `
+  }
+  return mailgun.messages().send(data, (error, body) => {
+    console.log(body);
+    return true;
+  });
+})
+
 export const sendNewEmail = functions.auth.user().onCreate((user) => {
   const data = {
     from: 'User Auth Demo <no-reply@mg.zncodes.com>',
+    'h:Reply-To': 'zach@zdnmail.com',
     to: user.email,
     subject: 'Welcome aboard!',
     text: `
@@ -89,9 +117,8 @@ export const sendNewEmail = functions.auth.user().onCreate((user) => {
       Thank you!
         - Zach Nusbaum
     `
-  };
+  }
 
   console.log('Registration Email Sent', data);
-
   return mailgun.messages().send(data, (error, body) => console.log(error))
 })

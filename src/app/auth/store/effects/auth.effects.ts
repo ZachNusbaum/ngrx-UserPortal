@@ -49,6 +49,13 @@ export class AuthEffects {
     tap(() => this.router.navigateByUrl('/'))
   );
 
+  @Effect({dispatch: false})
+  sendVerify$ = this.actions$.pipe(
+    ofType(AuthActionTypes.SendEmailVerify),
+    tap(() => this.afAuth.auth.currentUser.sendEmailVerification()),
+    tap(() => this.router.navigateByUrl('/'))
+  );
+
 
   constructor(private actions$: Actions, private afAuth: AngularFireAuth, private router: Router) {}
 }

@@ -11,9 +11,10 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 import { EmailLoginComponent } from './components/email-login/email-login.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 @NgModule({
-  declarations: [GoogleLoginComponent, UserRegistrationComponent, EmailLoginComponent, EditProfileComponent, PasswordResetComponent],
+  declarations: [GoogleLoginComponent, UserRegistrationComponent, EmailLoginComponent, EditProfileComponent, PasswordResetComponent, VerifyEmailComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature('auth', fromAuth.reducer),

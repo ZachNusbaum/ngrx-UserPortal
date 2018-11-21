@@ -8,7 +8,8 @@ export enum AuthActionTypes {
   RegisterError = '[Auth] Registration Error',
   RegisterSuccess = '[Auth] Registration Success',
   Logout = '[Auth] Logout',
-  LogoutSuccess = '[Auth] Logout Success'
+  LogoutSuccess = '[Auth] Logout Success',
+  SendEmailVerify = '[Auth] Sent Verification Email'
 }
 
 export class Login implements Action {
@@ -43,6 +44,10 @@ export class Logout implements Action {
 
 export class LogoutSuccess implements Action {
   readonly type = AuthActionTypes.LogoutSuccess;
+}
+
+export class SendEmailVerify implements Action {
+  readonly type = AuthActionTypes.SendEmailVerify;
 }
 
 export type AuthActions = Login
