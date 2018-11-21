@@ -8,7 +8,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./zipcode-cache.component.css']
 })
 export class ZipcodeCacheComponent implements OnInit {
-  zipcodes$ = this.db.collection('zips', ref => ref.where('success', '==', true)).valueChanges();
+  zipcodes$ = this.db.collection('zips', (ref) => {
+    return ref.where('success', '==', true).orderBy('input', 'asc');
+  }).valueChanges();
 
   constructor(private db: AngularFirestore) { }
 
