@@ -19,7 +19,7 @@ export class AuthEffects {
       return signIn;
     }),
     map((user) => {
-      console.log('user', user);
+      // console.log('user', user);
       if (user) {
         return new LoginSuccess();
       } else {
