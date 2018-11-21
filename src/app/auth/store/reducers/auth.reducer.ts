@@ -18,6 +18,9 @@ export function reducer(state = initialState, action: AuthActions): State {
     case AuthActionTypes.LogoutSuccess:
       return {...state, loggedIn: false};
 
+    case AuthActionTypes.RegisterSuccess:
+      return {...state, loggedIn: true};
+
     default:
       return state;
   }

@@ -26,6 +26,7 @@ export class LoginError implements Action {
 
 export class Register implements Action {
   readonly type = AuthActionTypes.Register;
+  constructor(public payload: any) {}
 }
 
 export class RegisterError implements Action {
